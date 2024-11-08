@@ -1,0 +1,39 @@
+<style>
+  .return,
+  .delete {
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+    padding: 7.5px;
+    width: 100%;
+    font-size: .865rem;
+    text-align: center;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: filter .2s ease-in-out;
+  }
+
+  .return:hover,
+  .delete:hover {
+    filter: brightness(.865);
+  }
+
+  .delete {
+    background-color: #fc3838;
+  }
+
+  .return {
+    background-color: #808080;
+  }
+</style>
+
+<h2>UPDATE {{file.name}}</h2>
+
+<form action="/update" method="POST" enctype="multipart/form-data">
+  <input type="hidden" name="id" id="id" value="{{file.id}}" />
+  <input type="text" name="name" id="name" value="{{file.name}}" />
+  <input type="file" name="image" id="image" value="{{file.image}}" />
+  <input type="submit" value="Update" />
+  <a href="/delete/{{file.id}}&{{file.image}}" class="delete">Delete</a>
+  <a href="/" class="return">Return</a>
+</form>
